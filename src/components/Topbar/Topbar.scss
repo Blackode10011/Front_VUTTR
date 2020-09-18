@@ -1,0 +1,18 @@
+.Header {
+	opacity: 1;
+	display: flex;
+	padding-top: 50px;
+
+	&--title {
+		font-size: 32px;
+		margin-bottom: 0;
+		color: #170C3A;
+		
+	}
+	&--title span {
+		left: auto;
+	}
+	&--title p {
+		font-size: 22px;
+	}
+}
