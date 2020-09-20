@@ -4,16 +4,19 @@ import Topbar from '../../components/Topbar';
 import { Redirect } from 'react-router-dom';
 
 function App() {
-	const userAuthenticate = false;
-  return (
+	const userAuth = false;
+	console.log(userAuth)
+	return (
     <div className='App'>
 			<div className='container'>
 				<Topbar/>
+				
 				{
-					userAuthenticate ? (
+					userAuth ? (
 						<p>Main Default</p>
+						
 					):(
-						<Redirect to='/login'/>
+						<Redirect to='/login' userAuth={userAuth} />
 					)
 				}
     	</div>

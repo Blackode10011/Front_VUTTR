@@ -12,7 +12,7 @@ function useForm(initValues) {
 
 	function handleChange(event){
 		setValue(
-			event.target.getAttribute('name'),
+			event.target.name,
 			event.target.value
 		);
 	}
