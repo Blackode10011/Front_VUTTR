@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 function App() {
 	const userAuth = false;
-	console.log(userAuth)
+
 	return (
     <div className='App'>
 			<div className='container'>
@@ -16,7 +16,7 @@ function App() {
 						<p>Main Default</p>
 						
 					):(
-						<Redirect to='/login' userAuth={userAuth} />
+						<Redirect to='/login' />
 					)
 				}
     	</div>

@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import './index.css';
-import PageDefault from './pages/Default';
-import PageLogin from './pages/Login';
+import './styles/index.scss';
+import Routes from './routes';
+import Store from './store';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" component={PageDefault} exact />
-			<Route path='/login' component={PageLogin} />
-    </Switch>
-  </BrowserRouter>,
+	<Provider store={Store}>
+		<Routes/>
+	</Provider>,
   document.getElementById('root'),
 );
