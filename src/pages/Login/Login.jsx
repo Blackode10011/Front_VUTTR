@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './Login.scss';
 
 import Topbar from '../../components/Topbar';
 import useForm from '../../hooks';
-import repository from '../../services/api/users.jsx';
+import { userAuth } from '../../actions';
+
 
 function Login () {
 	const history = useHistory();
-	const [user, setUser] = useState([]);
-	const [token, setToken] = useState('');
+	const dispatch = useDispatch();
+	const isLogged = useSelector(state => state.authorization.isLogged);
 
 	const initValues = {
 		email: '',
@@ -22,28 +24,15 @@ function Login () {
 	return (
 		<div className='container'>
 			<Topbar/>
-			<form className='login' onSubmit={function handleSubmit(event) {
+			<form className='login' onSubmit={async function handleSubmit(event) {
 				event.preventDefault();
 
-				try {
-						repository.login({
-						email: values.email,
-						password: values.password,
-					})
-					.then((response) => {
-						console.log(response)
-						setUser(response.findedUser);
-						setToken(response.token);
-					})
-					.then(() => {
-						history.push('/');
-					});
+				await dispatch(userAuth(values));
 					
-				} catch (error) {
-					return error.message;
+				if (isLogged) {
+					history.push('/');
 				}
-				console.log(user);
-					console.log(token);
+			    
 			}}>
 				<input
 					type='email'

@@ -1,18 +1,21 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import './App.scss';
 import Topbar from '../../components/Topbar';
-import { Redirect } from 'react-router-dom';
+
 
 function App() {
-	const userAuth = false;
+	const isLogged = useSelector(state => state.authorization.isLogged);
 
+	console.log(isLogged)
 	return (
     <div className='App'>
 			<div className='container'>
 				<Topbar/>
-				
 				{
-					userAuth ? (
+					isLogged ? (
 						<p>Main Default</p>
 						
 					):(

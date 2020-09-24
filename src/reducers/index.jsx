@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { authorization } from './authorization.jsx';
+import authorization from './authorization.jsx';
 
-export default combineReducers(
+export default combineReducers({
 	authorization,
-);
+});

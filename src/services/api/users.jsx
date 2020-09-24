@@ -14,7 +14,7 @@ function login(user) {
 		if (response.ok) {
 			return await response.json();
 		} else {
-			throw new Error('Error Server!');
+			return await response.json();
 		}
 	});
 }
