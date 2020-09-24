@@ -1,12 +1,13 @@
 .login {
 	background-color: #E1E7FD;
 	border-radius: 5px;
-	padding: 100px;
-	width: 600px;
+	padding: 10%;
+	width: 100%;
 	display: flex;
   flex-direction: column;
 	align-items: center;
-	margin: 0 auto;
+	margin: 10% auto;
+	overflow: hidden;
 
 	& input {
 		width: 100%;
@@ -16,6 +17,7 @@
 		border: 1px solid #EBEAED;
 		border-radius: 5px;
 		opacity: 1;
+		max-width: 30rem;
 	}
 	& button {
 		margin-top: .8rem;
@@ -26,5 +28,6 @@
 		opacity: 1;
 		color: #fff;
 		cursor: pointer;
+		max-width: 30rem;
 	}
 }

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-	isLogged: false,
+	isLogged: null,
 	token: '',
 	errorMessage: '',
 	user: []

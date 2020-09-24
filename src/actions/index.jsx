@@ -11,6 +11,7 @@ export const userAuth = (values) => {
 					type: 'LOGIN_SUCESS',
 					payload: response,
 				});
+				console.log(response.status)
 			}
 		);
 	};

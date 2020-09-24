@@ -21,19 +21,21 @@ function Login () {
 
 	const { handleChange, values } = useForm(initValues);
 
+	async function handleSubmit(event) {
+		event.preventDefault();
+
+		await dispatch(userAuth(values));
+			
+		if (isLogged) {
+			history.push('/');
+		}
+			
+	}
+
 	return (
 		<div className='container'>
 			<Topbar/>
-			<form className='login' onSubmit={async function handleSubmit(event) {
-				event.preventDefault();
-
-				await dispatch(userAuth(values));
-					
-				if (isLogged) {
-					history.push('/');
-				}
-			    
-			}}>
+			<form className='login' onSubmit={handleSubmit}>
 				<input
 					type='email'
 					name='email'
