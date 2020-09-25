@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import './App.scss';
 import Topbar from '../../components/Topbar';
+import Cards from '../../components/Cards';
 
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
 				<Topbar/>
 				{
 					isLogged ? (
-						<p>Main Default</p>
-						
+						<Cards/>
 					):(
 						<Redirect to='/login' />
 					)

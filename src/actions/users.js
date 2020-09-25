@@ -1,4 +1,4 @@
-import userRepository from '../services/api/users.jsx';
+import userRepository from '../services/api/users.js';
 
 export const userAuth = (values) => {
 	return (dispatch) => {
@@ -11,7 +11,7 @@ export const userAuth = (values) => {
 					type: 'LOGIN_SUCESS',
 					payload: response,
 				});
-				console.log(response.status)
+				console.log(response)
 			}
 		);
 	};

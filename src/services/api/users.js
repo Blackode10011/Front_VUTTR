@@ -1,4 +1,4 @@
-import service from '../index.jsx';
+import service from '../index.js';
 
 const url = service.BASE_URL;
 

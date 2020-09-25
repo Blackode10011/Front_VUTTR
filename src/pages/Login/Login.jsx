@@ -6,7 +6,7 @@ import './Login.scss';
 
 import Topbar from '../../components/Topbar';
 import useForm from '../../hooks';
-import { userAuth } from '../../actions';
+import { userAuth } from '../../actions/users';
 
 
 function Login () {
