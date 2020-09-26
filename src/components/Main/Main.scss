@@ -1,0 +1,77 @@
+.Main {
+
+	&_header {
+		width: 100%;
+		height: 94px;
+		z-index: 100;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&--search {
+			background: #F5F4F6 0% 0% no-repeat padding-box;
+			border: 1px solid #8F8A9B;
+			border-radius: 3px;
+			opacity: 1;
+			padding: 1%;
+			margin-right: 1%;
+		}
+		&--checkbox {
+			background: #365DF0 0% 0% no-repeat padding-box;
+			border: 1px solid #365DF0;
+			opacity: 1;
+			margin: .4%;
+		}
+		& label {
+			color: #170C3A;
+			opacity: 1;
+			margin-right: auto;
+		}
+		& button {
+			padding: 1%;
+			width: 20%;
+			background: #FEE 0% 0% no-repeat padding-box;
+			border-radius: 3px;
+			color: #F95E5A;
+		}
+	}
+
+	&_card {
+		width: 100%;
+		height: 25vh;
+		background: #FFFFFF 0% 0% no-repeat padding-box;
+		box-shadow: 0px 20px 25px #0000001A;
+		border: 1px solid #EBEAED;
+		border-radius: 5px;
+		opacity: 1;
+		margin: 5% 0 5% 0;
+
+		&--header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 3%;
+		}
+
+		&--title {
+			text-decoration: underline #244AA8;
+			color: #244AA8;
+			
+		}
+
+		&--description {
+			letter-spacing: 0.4px;
+			color: #170C3A;
+			margin: 3%;
+		}
+		&--tags {
+			display: inline-flex;
+			color: #170C3A;
+			margin: 0 1% 1% 3%;
+		}
+		
+	}
+	
+
+}
