@@ -21,23 +21,25 @@ function Main(props) {
   				<label>Tags Only</label>
 					<button>Add</button>
 				</header>
-				{props.card.map((card) => {
+				{props.card.map((card, index) => {
 					return(
-						<section key={card.id} className='Main_card' >	
+						<section key={index} className='Main_card' >	
 							<nav className='Main_card--header'>
 								<div className='Main_card--title'>{card.title}</div>
 								<i>Remove</i>
 							</nav>
-							<div className='Main_card--description'>
-								<p>{card.description}</p>
-							</div>
-							{card.tags.map((tag)=>{
+							<nav className='Main_card--section'>
+								<div className='Main_card--description'>
+									<p>{card.description}</p>
+								</div>
+								{card.tags.map((tag, index)=>{
 									return(
-										<div key={tag.id} className='Main_card--tags'>
-											#{tag }
+										<div key={index} className='Main_card--tags' >
+											#{tag}
 										</div>
 									);
 								})}
+							</nav>
 							
 						</section>
 					);

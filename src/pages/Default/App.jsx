@@ -14,7 +14,7 @@ function App() {
 	const isLogged = useSelector(state => state.authorization.isLogged);
 	const token = useSelector(state => state.authorization.token);
 	const tools = useSelector(state => state.tools.tools);
-	console.log(isLogged)
+	console.log(token)
 	useEffect(() => {
 		
 		dispatch(getAllTools(token));

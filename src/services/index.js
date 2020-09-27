@@ -1,6 +1,6 @@
 const BASE_URL = window.location.hostname.includes('localhost')
-	? 'http://localhost:3000'
-	: 'https://vuttr-shumax.herokuapp.com';
+	? 'https://vuttr-shumax.herokuapp.com'
+	: 'http://localhost:3000';
 
 export default {
 	BASE_URL
