@@ -29,7 +29,6 @@ function Login () {
 		if (isLogged) {
 			history.push('/');
 		}
-			
 	}
 
 	return (
