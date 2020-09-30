@@ -1,6 +1,9 @@
 import React, { useEffect }  from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllTools } from '../../actions/tools'; 
+import { getAllTools, handleAddTool } from '../../actions/tools'; 
+
+import Topbar from '../Topbar';
+import AddTool from '../AddTool';
 
 import './Main.scss';
 import AddIcon from '../../assets/icons/plus.svg';
@@ -11,7 +14,9 @@ function Main() {
 	const dispatch = useDispatch();
 	const token = useSelector(state => state.authorization.token);
 	const tools = useSelector(state => state.tools.tools);
-	
+	const showAddTool = useSelector(state => state.tools.showAddTool);
+
+	console.log(showAddTool)
 	useEffect(() => {
 		
 		dispatch(getAllTools(token));
@@ -21,6 +26,8 @@ function Main() {
 
 	return (
 		<div className='container'>
+			<Topbar/>
+			{ showAddTool && <AddTool/> }
 			<div className='Main'>
 				<header className='Main_header'>
 					<div className='Main_header--search'>
@@ -36,10 +43,13 @@ function Main() {
 						className='Main_header--checkbox'
 					/>
   				<label>Tags Only</label>
-					<button>
+					<button onClick={() => dispatch(handleAddTool())}>
 						<img src={AddIcon} alt='AddIcon'/>
-						    Add</button>
+						Add
+					</button>
+					
 				</header>
+				
 				{tools.map((card, index) => {
 					return(
 						<section key={index} className='Main_card' >	

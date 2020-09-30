@@ -11,11 +11,7 @@ function login(user) {
 		body: JSON.stringify(user),
 	})
 	.then(async (response) => {
-		if (response.ok) {
-			return await response.json();
-		} else {
-			return await response.json();
-		}
+		return await response.json();
 	});
 }
 

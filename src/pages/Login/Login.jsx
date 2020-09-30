@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -25,11 +25,13 @@ function Login () {
 		event.preventDefault();
 
 		await dispatch(userAuth(values));
-			
+	}
+
+	useEffect(() => {
 		if (isLogged) {
 			history.push('/');
 		}
-	}
+	},[history, isLogged]);
 
 	return (
 		<div className='container'>

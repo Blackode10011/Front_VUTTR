@@ -13,3 +13,9 @@ export const getAllTools = (token) => {
 		);
 	};
 };
+
+export const handleAddTool = () => {
+	return (dispatch) => {
+		dispatch({ type: "SHOW_ADD_TOOL" });
+	};
+};
