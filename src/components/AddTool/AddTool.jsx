@@ -1,13 +1,34 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { handleClose } from '../../actions';
+import { handleClose, createTool } from '../../actions';
 
 import './AddTool.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
 import AddIcon from '../../assets/icons/plus.svg';
 
-function AddTool() {
+import useForm from '../../hooks';
+
+function AddTool(props) {
 	const dispatch = useDispatch();
+	
+	const initValues = {
+		title: '',
+		link: '',
+		description: '',
+		tags: '',
+	}
+
+	const { handleChange, values } = useForm(initValues);
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+
+		var splitsTags = values.tags.split(' ');
+		values.tags = splitsTags;
+		console.log(values)
+		await dispatch(createTool(props.token, values));
+	}
+
 	return (
 		<div className='container'>
 			<div className='AddTool'>
@@ -23,15 +44,35 @@ function AddTool() {
 						onClick={() => dispatch(handleClose())}
 					/>	
 				</header>
-			<form className='AddTool_form'>
+			<form className='AddTool_form' onSubmit={handleSubmit}>
 				<label>Name</label>
-				<input />
+				<input
+					type='text'
+					name='title'
+					values={values.title}
+					onChange={handleChange}
+				/>
 				<label>Link</label>
-				<input />
+				<input 
+					type='text'
+					name='link'
+					values={values.link}
+					onChange={handleChange}
+				/>
 				<label>Description</label>
-				<textarea />
+				<textarea 
+					type='textarea'
+					name='description'
+					values={values.name}
+					onChange={handleChange}
+				/>
 				<label>Tags</label>
-				<input />	
+				<input 
+					type='text'
+					name='tags'
+					values={values.tags}
+					onChange={handleChange}
+				/>	
 
 				<button type='submit'>
 					Add tool

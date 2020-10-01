@@ -27,7 +27,7 @@ function Main() {
 	return (
 		<div className='container'>
 			<Topbar/>
-			{ showAddTool && <AddTool/> }
+			{ showAddTool && <AddTool token={token}/> }
 			<div className='Main'>
 				<header className='Main_header'>
 					<div className='Main_header--search'>

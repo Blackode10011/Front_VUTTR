@@ -12,8 +12,22 @@ function getAll(token) {
 	.then(async (response) => {
 		return await response.json();
 	});
-}
+};
+
+function createTool(token, tool) {
+	return fetch(`${url}/tools`, {
+		method: 'POST',
+		headers: {
+			'Authorization': token,
+		},
+		body: JSON.stringify(tool),
+	})
+	.then(async (response) => {
+		return await response.json();
+	});
+};
 
 export default {
 	getAll,
+	createTool,
 }

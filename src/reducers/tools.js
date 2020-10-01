@@ -11,6 +11,11 @@ const tools = (state = INITIAL_STATE, action) => {
 				tools: action.payload,
 			}
 		}
+		case "CREATE_TOOL": {
+			return {
+				...state
+			}
+		}
 		case "SHOW_ADD_TOOL": {
 			return {
 				...state,
