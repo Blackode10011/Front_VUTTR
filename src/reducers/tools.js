@@ -17,6 +17,12 @@ const tools = (state = INITIAL_STATE, action) => {
 				showAddTool: true,
 			}
 		}
+		case "CLOSE_ADD_TOOL": {
+			return {
+				...state,
+				showAddTool: false,
+			}
+		}
 		default:
 			return state;
 	}

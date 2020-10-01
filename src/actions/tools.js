@@ -19,3 +19,9 @@ export const handleAddTool = () => {
 		dispatch({ type: "SHOW_ADD_TOOL" });
 	};
 };
+
+export const handleClose = () => {
+	return (dispatch) => {
+		dispatch({ type: "CLOSE_ADD_TOOL" });
+	};
+};

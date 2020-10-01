@@ -2,9 +2,73 @@
 	background-color: white;
 	position: fixed;
 	height: 500px;
-	width: 50vmax;
+	width: 45vmax;
 	z-index: 1;
 	top: 100px;
 	box-shadow: 0px 10px 1000rem seagreen;
 	border-radius: 5px;
+
+	&_header {
+		display: flex;
+		height: 10%;
+		
+		&--title {
+			margin: auto auto auto 3%;
+			width: 50%;
+			font-weight: 600;
+			opacity: .82;
+		}
+
+		&--close {
+			position: relative;
+			margin: auto 3%;
+			cursor: pointer;
+		}
+
+		& img {
+			width: 15px;
+			opacity: 0.7;
+		}
+	}
+	
+	&_form {
+		display: flex;
+		flex-direction: column;
+		margin: 5%;
+		max-height: 450px;
+	}
+
+	& label {
+		font-size: 14px;
+		color: #170C3A;
+		opacity: 0.85;
+		font-weight: 600;
+		padding: 0 0 1%;
+	}
+	& input {
+		width: 40vmax;
+		height: 34px;
+		margin-bottom: 4%;
+		font-size: 14px;
+		border: 1px solid #DEDCE1;
+		background: 0% 0% no-repeat padding-box;
+	}
+	& textarea {
+		width: 40vmax;
+		height: 80px;
+		margin-bottom: 4%;
+		font-size: 14px;
+		border: 1px solid #DEDCE1;
+		background: 0% 0% no-repeat padding-box;
+	}
+	& button {
+		padding: 1%;
+		width: 20vh;
+		top: 10%;
+		margin-left: auto;
+		background: #FEE 0% 0% no-repeat padding-box;
+		border-radius: 3px;
+		color: #F95E5A;
+		cursor: pointer;
+	}
 }
