@@ -15,6 +15,7 @@ function getAll(token) {
 };
 
 function createTool(token, tool) {
+	console.log(tool)
 	return fetch(`${url}/tools`, {
 		method: 'POST',
 		headers: {
@@ -27,7 +28,20 @@ function createTool(token, tool) {
 	});
 };
 
+function deleteTool(token, id) {
+	return fetch(`${url}/tools/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Authorization': token,
+		}
+	})
+	.then(async (response) => {
+		return await response.json();
+	});
+};
+
 export default {
 	getAll,
 	createTool,
+	deleteTool,
 }

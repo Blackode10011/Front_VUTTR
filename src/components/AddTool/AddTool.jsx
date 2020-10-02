@@ -32,7 +32,7 @@ function AddTool(props) {
 	return (
 		<div className='container'>
 			<div className='AddTool'>
-				<header className='AddTool_header'>
+				<nav className='AddTool_header'>
 					<div className='AddTool_header--title'>
 						<img src={AddIcon} alt='AddIcon'/>
 						<span> Add new tool</span>
@@ -43,7 +43,7 @@ function AddTool(props) {
 						alt='CloseIcon' 
 						onClick={() => dispatch(handleClose())}
 					/>	
-				</header>
+				</nav>
 			<form className='AddTool_form' onSubmit={handleSubmit}>
 				<label>Name</label>
 				<input
@@ -51,6 +51,7 @@ function AddTool(props) {
 					name='title'
 					values={values.title}
 					onChange={handleChange}
+					required
 				/>
 				<label>Link</label>
 				<input 
@@ -58,6 +59,7 @@ function AddTool(props) {
 					name='link'
 					values={values.link}
 					onChange={handleChange}
+					required
 				/>
 				<label>Description</label>
 				<textarea 
@@ -65,6 +67,7 @@ function AddTool(props) {
 					name='description'
 					values={values.name}
 					onChange={handleChange}
+					required
 				/>
 				<label>Tags</label>
 				<input 
@@ -72,6 +75,7 @@ function AddTool(props) {
 					name='tags'
 					values={values.tags}
 					onChange={handleChange}
+					required
 				/>	
 
 				<button type='submit'>

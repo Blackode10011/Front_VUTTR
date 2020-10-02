@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
 	tools: [],
-	showAddTool: false
+	showAddTool: false,
+	showDeleteTool: false,
 }
 
 const tools = (state = INITIAL_STATE, action) => {
@@ -16,6 +17,11 @@ const tools = (state = INITIAL_STATE, action) => {
 				...state
 			}
 		}
+		case "DELETE_TOOL": {
+			return {
+				...state,
+			}
+		}
 		case "SHOW_ADD_TOOL": {
 			return {
 				...state,
@@ -26,6 +32,18 @@ const tools = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				showAddTool: false,
+			}
+		}
+		case "SHOW_DELETE_TOOL": {
+			return {
+				...state,
+				showDeleteTool: true,
+			}
+		}
+		case "CLOSE_DELETE_TOOL": {
+			return {
+				...state,
+				showDeleteTool: false,
 			}
 		}
 		default:
