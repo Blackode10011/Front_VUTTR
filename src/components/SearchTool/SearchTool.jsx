@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { handleAddTool, filterTools } from '../../actions';
 
 import './SearchTool.scss';
@@ -10,18 +10,21 @@ import useForm from '../../hooks';
 
 export default function SearchTool(props) {
 	const dispatch = useDispatch();
+	const filteredTools = useSelector(state => state.tools.filteredTools);
 
 	const initValues= {
 		title: ''
 	}
 
 	const { values, handleChange } = useForm(initValues);
+
+	function handleSearch(event) {
+		handleChange(event);
+		dispatch(filterTools(values.title, props.tools));
+	}
 	
-	/*useEffect(() => {
-		dispatch(filterTools(values.title, props.tool));
-	}, [values.title, props.tool, dispatch]);
-*/
-console.log(props)
+	console.log(filteredTools)
+	
 	return (
 		<header className='Main_header'>
 			<div className='Main_header--search'>
@@ -31,7 +34,7 @@ console.log(props)
 					name='title'
 					placeholder='Search'
 					value={values.title}
-					onChange={() => dispatch(filterTools(values.title, props.tools))}
+					onChange={(event) => handleSearch(event)}
 					className='Main_header--searchInput'
 				/>
 			</div>

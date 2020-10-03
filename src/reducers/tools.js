@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
 	tools: [],
 	filteredTools: [],
+	searchTitle: ' ',
   showAddTool: false,
   showDeleteTool: false,
 };
@@ -10,7 +11,7 @@ const tools = (state = INITIAL_STATE, action) => {
     case 'LOAD_TOOLS': {
       return {
         ...state,
-        tools: action.payload,
+				tools: action.payload,
       };
     }
     case 'CREATE_TOOL': {
@@ -51,7 +52,8 @@ const tools = (state = INITIAL_STATE, action) => {
 		case 'SEARCH_TOOL': {
 			return {
 				...state,	
-				tools: action.payload,
+				filteredTools: action.payload.filteredTools,
+				searchTitle: action.payload.search,
 			}
 		}
     default:

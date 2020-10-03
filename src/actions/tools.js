@@ -46,21 +46,15 @@ export const handleClose = () => (dispatch) => {
 };
 
 export const filterTools = (title, tools) => (dispatch) => {
-	console.log()
-	
 	if (title !== '') {
 		dispatch({
 			type: 'SEARCH_TOOL',
 			payload: {
-				tools: tools.filter(
+				filteredTools: tools.filter(
 					findTool => findTool.title.toLowerCase()
 					.includes(title.toLowerCase())),
+				search: title,
 			},
-		});
-	} else {
-		dispatch({
-			type: 'LOAD_TOOLS',
-			payload: tools,
 		});
 	}
 };
