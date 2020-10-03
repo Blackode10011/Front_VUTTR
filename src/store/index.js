@@ -6,15 +6,15 @@ import storage from 'redux-persist/lib/storage/session';
 import allReducers from '../reducers';
 
 const persistConfig = {
-	key: 'vuttrStorage',
-	storage,
+  key: 'vuttrStorage',
+  storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, allReducers);
- 
+
 const store = createStore(
-	persistedReducer,
-	applyMiddleware(thunk),
+  persistedReducer,
+  applyMiddleware(thunk),
 );
 
 const persitor = persistStore(store);

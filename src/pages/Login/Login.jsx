@@ -50,15 +50,15 @@ function Login () {
 					name='password'
 					placeholder='Password'
 					value={values.password}
-					onChange={handleChange}
+					onChange={handleChange} 
 					required
 				/>
 
 				<button type='submit'>
 					Sign In
 				</button>
-
 			</form>
+			
 		</div>
 	);
 }

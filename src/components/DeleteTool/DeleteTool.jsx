@@ -7,7 +7,7 @@ import CloseIcon from '../../assets/icons/cancel.svg';
 
 function DeleteTool(props) {
 	const dispatch = useDispatch();
-	console.log(props.card)
+	console.log(props)
 	return (
 		<div className='container'>
 		 <div className='Delete'>
@@ -18,14 +18,19 @@ function DeleteTool(props) {
 				</div>
 			</nav>
 			<nav className='Delete_content'>
-				<span>Are you sure you want to remove {props.card}?</span>
+				<span>Are you sure you want to remove ?</span>
 				<div className='Delete_content--buttons'>
 					<button
 						onClick={() => dispatch(handleCloseDeleteTool())}>
 						Cancel  
 					</button>
 					<> </>
-					<button>Yes, remove</button>
+					<button 
+						onClick={()=> dispatch(
+							deleteTool(props.token, props.card.id))
+							}>
+						Yes, remove
+					</button>
 				</div>
 				
 			</nav>
