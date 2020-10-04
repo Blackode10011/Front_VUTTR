@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { handleCloseDelete, deleteTool, getAllTools } from '../../actions'; 
 
 import './DeleteTool.scss';
@@ -7,9 +7,10 @@ import CloseIcon from '../../assets/icons/cancel.svg';
 
 function DeleteTool(props) {
 	const dispatch = useDispatch();
-	
+	const singleTool = useSelector(state => state.tools.singleTool);
+
 	function handleDelete() {
-		dispatch(deleteTool(props.token, props.card.id));
+		dispatch(deleteTool(props.token, singleTool.id));
 		dispatch(getAllTools(props.token));
 		dispatch(handleCloseDelete());
 	};

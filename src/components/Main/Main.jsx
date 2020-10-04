@@ -17,13 +17,15 @@ function Main({tools, token}) {
 	const showAddTool = useSelector(state => state.tools.showAddTool);
 	const showDeleteTool = useSelector(state => state.tools.showDeleteTool);
 	const showSuccessful = useSelector(state => state.tools.successful);
-	console.log(tools)
+	
 	return (
 		<div className='container'>
 			<Topbar/>
 			{ showAddTool && <AddTool token={token}/>	}
 			{ showSuccessful && <Successful/> }
-			{!tools.length ? (
+			{ showDeleteTool && <DeleteTool token={token}/> }
+			{
+			!tools.length ? (
 				<Loading/>
 			):(
 			<div className='Main'>
@@ -36,10 +38,9 @@ function Main({tools, token}) {
 								<img 
 									src={CloseIcon} 
 									alt='CloseIcon' 
-									onClick={() => dispatch(handleDeleteTool())}	
+									onClick={() => dispatch(handleDeleteTool(card))}	
 								/>
 							</nav>
-							{ showDeleteTool && <DeleteTool token={token} card={card}/> }
 							<nav className='Main_card--section'>
 								<div className='Main_card--description'>
 									<p>{card.description}</p>

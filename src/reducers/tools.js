@@ -2,6 +2,7 @@ const INITIAL_STATE = {
 	tools: [],
 	filteredTools: [],
 	searchTitle: ' ',
+	singleTool: [],
 	successful: false,
   showAddTool: false,
   showDeleteTool: false,
@@ -51,12 +52,11 @@ const tools = (state = INITIAL_STATE, action) => {
 				showAddTool: false,
       };
 		}	
-			
-	
     case 'SHOW_DELETE_TOOL': {
       return {
         ...state,
-        showDeleteTool: true,
+				showDeleteTool: true,
+				singleTool: action.payload,
       };
     }
 		case 'SEARCH_TOOL': {

@@ -27,12 +27,16 @@ export const deleteTool = (token, id) => (dispatch) => {
 		 .then(dispatch({ type: 'DELETE_TOOL' }));
 };
 
-export const handleDeleteTool = () => (dispatch) => {
-  dispatch({ type: 'SHOW_DELETE_TOOL' });
+export const handleDeleteTool = (tool) => (dispatch) => {
+	dispatch({ 
+		type: 'SHOW_DELETE_TOOL', 
+		payload: tool,
+	});
 };
 
 export const handleCloseDelete = () => (dispatch) => {
-  dispatch({ type: 'CLOSE_DELETE' });
+	
+	dispatch({ type: 'CLOSE_DELETE' });
 };
 
 export const handleAddTool = () => (dispatch) => {
