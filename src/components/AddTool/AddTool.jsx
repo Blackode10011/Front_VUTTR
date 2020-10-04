@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { handleClose, createTool } from '../../actions';
+import { handleClose, createTool, getAllTools } from '../../actions';
 
 import './AddTool.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
@@ -27,6 +27,8 @@ function AddTool(props) {
 		values.tags = splitsTags;
 		console.log(values)
 		await dispatch(createTool(props.token, values));
+		dispatch(handleClose());
+		dispatch(getAllTools(props.token));
 	}
 
 	return (

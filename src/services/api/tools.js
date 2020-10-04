@@ -13,15 +13,18 @@ function getAll(token) {
 }
 
 function createTool(token, tool) {
-  console.log(tool);
   return fetch(`${url}/tools`, {
     method: 'POST',
     headers: {
+			'Content-Type': 'application/json',
       Authorization: token,
     },
     body: JSON.stringify(tool),
   })
-    .then(async (response) => await response.json());
+    .then(async (response) => await {
+			status: response.status, 
+			response: response.json()
+		});
 }
 
 function deleteTool(token, id) {
@@ -31,7 +34,7 @@ function deleteTool(token, id) {
       Authorization: token,
     },
   })
-    .then(async (response) => await response.json());
+		.then(async (response) => await response.json());
 }
 
 export default {

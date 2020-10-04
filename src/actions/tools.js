@@ -13,20 +13,24 @@ export const getAllTools = (token) => (dispatch) => {
 };
 
 export const createTool = (token, tool) => (dispatch) => {
-  toolRepository.createTool(token, tool)
+	toolRepository.createTool(token, tool)
     .then(
-      (response) => {
+     	 (response) => {
         dispatch({ 
 					type: 'CREATE_TOOL', 
 					payload: response,
 				});
+				console.log(response)
       },
     );
 };
 
 export const deleteTool = (token, id) => (dispatch) => {
   toolRepository.deleteTool(token, id)
-		 .then(dispatch({ type: 'DELETE_TOOL' }));
+		 .then((response) => { 
+			 dispatch({ type: 'DELETE_TOOL' });
+			 console.log(response);
+		 });
 };
 
 export const handleDeleteTool = () => (dispatch) => {

@@ -7,7 +7,7 @@ import CloseIcon from '../../assets/icons/cancel.svg';
 
 function DeleteTool(props) {
 	const dispatch = useDispatch();
-	console.log(props)
+	
 	return (
 		<div className='container'>
 		 <div className='Delete'>
