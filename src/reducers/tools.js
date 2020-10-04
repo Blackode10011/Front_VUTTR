@@ -2,6 +2,7 @@ const INITIAL_STATE = {
 	tools: [],
 	filteredTools: [],
 	searchTitle: ' ',
+	successful: false,
   showAddTool: false,
   showDeleteTool: false,
 };
@@ -16,7 +17,8 @@ const tools = (state = INITIAL_STATE, action) => {
     }
     case 'CREATE_TOOL': {
       return {
-        ...state,
+				...state,
+				successful: true,
       };
     }
     case 'DELETE_TOOL': {
@@ -31,24 +33,32 @@ const tools = (state = INITIAL_STATE, action) => {
         showAddTool: true,
       };
     }
-    case 'CLOSE_ADD_TOOL': {
+    case 'CLOSE_SUCCESS': {
       return {
         ...state,
-        showAddTool: false,
+				successful: false,
       };
-    }
+		}
+		case 'CLOSE_DELETE': {
+      return {
+        ...state,
+				showDeleteTool: false,
+      };
+		}
+		case 'CLOSE_ADD': {
+      return {
+        ...state,
+				showAddTool: false,
+      };
+		}	
+			
+	
     case 'SHOW_DELETE_TOOL': {
       return {
         ...state,
         showDeleteTool: true,
       };
     }
-    case 'CLOSE_DELETE_TOOL': {
-      return {
-        ...state,
-        showDeleteTool: false,
-      };
-		}
 		case 'SEARCH_TOOL': {
 			return {
 				...state,	

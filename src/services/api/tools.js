@@ -21,10 +21,7 @@ function createTool(token, tool) {
     },
     body: JSON.stringify(tool),
   })
-    .then(async (response) => await {
-			status: response.status, 
-			response: response.json()
-		});
+    .then(async (response) => await response.json());
 }
 
 function deleteTool(token, id) {

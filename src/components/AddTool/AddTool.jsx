@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { handleClose, createTool, getAllTools } from '../../actions';
+import { handleCloseAdd, createTool, getAllTools } from '../../actions';
 
 import './AddTool.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
@@ -25,10 +25,10 @@ function AddTool(props) {
 
 		var splitsTags = values.tags.split(' ');
 		values.tags = splitsTags;
-		console.log(values)
+		
 		await dispatch(createTool(props.token, values));
-		dispatch(handleClose());
 		dispatch(getAllTools(props.token));
+		dispatch(handleCloseAdd());
 	}
 
 	return (
@@ -43,7 +43,7 @@ function AddTool(props) {
 						className='AddTool_header--close'
 						src={CloseIcon} 
 						alt='CloseIcon' 
-						onClick={() => dispatch(handleClose())}
+						onClick={() => dispatch(handleCloseAdd())}
 					/>	
 				</nav>
 			<form className='AddTool_form' onSubmit={handleSubmit}>

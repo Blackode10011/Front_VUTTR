@@ -15,38 +15,36 @@ export const getAllTools = (token) => (dispatch) => {
 export const createTool = (token, tool) => (dispatch) => {
 	toolRepository.createTool(token, tool)
     .then(
-     	 (response) => {
-        dispatch({ 
-					type: 'CREATE_TOOL', 
-					payload: response,
-				});
-				console.log(response)
-      },
+			dispatch({ 
+				type: 'CREATE_TOOL', 
+				successful: true,
+			})
     );
 };
 
 export const deleteTool = (token, id) => (dispatch) => {
   toolRepository.deleteTool(token, id)
-		 .then((response) => { 
-			 dispatch({ type: 'DELETE_TOOL' });
-			 console.log(response);
-		 });
+		 .then(dispatch({ type: 'DELETE_TOOL' }));
 };
 
 export const handleDeleteTool = () => (dispatch) => {
   dispatch({ type: 'SHOW_DELETE_TOOL' });
 };
 
-export const handleCloseDeleteTool = () => (dispatch) => {
-  dispatch({ type: 'CLOSE_DELETE_TOOL' });
+export const handleCloseDelete = () => (dispatch) => {
+  dispatch({ type: 'CLOSE_DELETE' });
 };
 
 export const handleAddTool = () => (dispatch) => {
   dispatch({ type: 'SHOW_ADD_TOOL' });
 };
 
-export const handleClose = () => (dispatch) => {
-  dispatch({ type: 'CLOSE_ADD_TOOL' });
+export const handleCloseAdd = () => (dispatch) => {
+  dispatch({ type: 'CLOSE_ADD' });
+};
+
+export const handleCloseSuccess = () => (dispatch) => {
+  dispatch({ type: 'CLOSE_SUCCESS' });
 };
 
 export const filterTools = (title, tools) => (dispatch) => {

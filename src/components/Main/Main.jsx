@@ -7,6 +7,7 @@ import Loading from '../Loading';
 import SearchTool from '../SearchTool';
 import AddTool from '../AddTool';
 import DeleteTool from '../DeleteTool';
+import Successful from '../Successful';
 
 import './Main.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
@@ -15,11 +16,13 @@ function Main({tools, token}) {
 	const dispatch = useDispatch();
 	const showAddTool = useSelector(state => state.tools.showAddTool);
 	const showDeleteTool = useSelector(state => state.tools.showDeleteTool);
-
+	const showSuccessful = useSelector(state => state.tools.successful);
+	console.log(tools)
 	return (
 		<div className='container'>
 			<Topbar/>
 			{ showAddTool && <AddTool token={token}/>	}
+			{ showSuccessful && <Successful/> }
 			{!tools.length ? (
 				<Loading/>
 			):(
