@@ -22,7 +22,7 @@
 >![50%](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/4-search.png)
 
 ## Endpoints
-* API em produção: [](https://vuttr-shumax.herokuapp.com/)
+* API em produção: [API Vuttr Heroku](https://vuttr-shumax.herokuapp.com/)
 
 ## Itens Extras
  > Autenticação e autorização ( JWT );
