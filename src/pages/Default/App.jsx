@@ -21,9 +21,10 @@ function App() {
 		dispatch(getAllTools(token));
 	},[dispatch, token]);
 	
-	if (searchTitle === ' ') {
+	if (searchTitle === '') {
 		toolsOutput = tools;
-	} else {
+		
+	}else {
 		toolsOutput = filteredTools;
 	}
 	

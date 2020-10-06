@@ -52,6 +52,7 @@ export const handleCloseSuccess = () => (dispatch) => {
 };
 
 export const filterTools = (title, tools) => (dispatch) => {
+	console.log(title)
 	if (title !== '') {
 		dispatch({
 			type: 'SEARCH_TOOL',
@@ -62,5 +63,21 @@ export const filterTools = (title, tools) => (dispatch) => {
 				search: title,
 			},
 		});
+	}else {
+		dispatch({
+			type: 'SEARCH_TOOL',
+			payload: {
+				filteredTools: tools,
+				search: title,
+			}, 
+		});
 	}
 };
+export const errorMessage = (message) => (dispatch) => {
+	dispatch({
+		type: 'ERROR',
+		payload: {
+			message: message,
+		},
+	});
+}

@@ -9,9 +9,9 @@ function DeleteTool(props) {
 	const dispatch = useDispatch();
 	const singleTool = useSelector(state => state.tools.singleTool);
 
-	function handleDelete() {
-		dispatch(deleteTool(props.token, singleTool.id));
-		dispatch(getAllTools(props.token));
+	async function handleDelete() {
+		await dispatch(deleteTool(props.token, singleTool.id));
+		await dispatch(getAllTools(props.token));
 		dispatch(handleCloseDelete());
 	};
 

@@ -68,7 +68,12 @@
 		margin-left: auto;
 		background: #FEE 0% 0% no-repeat padding-box;
 		border-radius: 3px;
-		color: #12DB89;
+		color: #0E995D;
 		cursor: pointer;
+		border: 1px solid #12DB89;
+	}
+	& button:focus {
+		color: white;
+		background: #0E995D 0% 0% no-repeat padding-box;
 	}
 }

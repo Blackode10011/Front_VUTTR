@@ -15,11 +15,16 @@ function useForm(initValues) {
       event.target.name,
       event.target.value,
     );
-  }
+	}
+	
+	function clearForm() {
+		setValues(initValues);
+	}
 
   return {
     values,
-    handleChange,
+		handleChange,
+		clearForm,
   };
 }
 

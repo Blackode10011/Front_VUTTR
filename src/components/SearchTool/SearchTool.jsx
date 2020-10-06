@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { handleAddTool, filterTools } from '../../actions';
 
 import './SearchTool.scss';
@@ -11,15 +11,16 @@ import useForm from '../../hooks';
 export default function SearchTool(props) {
 	const dispatch = useDispatch();
 
-	const initValues= {
-		title: ''
-	}
+	const title = useSelector(state => state.tools.searchTitle);
 
-	const { values, handleChange } = useForm(initValues);
+	const { values, handleChange, clearForm } = useForm(title);
 
+	console.log(title)
 	function handleSearch(event) {
 		handleChange(event);
-		dispatch(filterTools(values.title, props.tools));
+
+		dispatch(filterTools(values.title, props.tools));	
+		
 	};
 	
 	return (

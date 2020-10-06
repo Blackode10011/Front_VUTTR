@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
 	tools: [],
 	filteredTools: [],
-	searchTitle: ' ',
+	searchTitle: '',
+	message: '',
 	singleTool: [],
 	successful: false,
   showAddTool: false,
@@ -64,6 +65,12 @@ const tools = (state = INITIAL_STATE, action) => {
 				...state,	
 				filteredTools: action.payload.filteredTools,
 				searchTitle: action.payload.search,
+			}
+		}
+		case 'ERROR': {
+			return {
+				...state,
+				message: action.payload,
 			}
 		}
     default:

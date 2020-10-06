@@ -12,25 +12,28 @@ import Successful from '../Successful';
 import './Main.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
 
-function Main({tools, token}) {
+function Main(props) {
 	const dispatch = useDispatch();
 	const showAddTool = useSelector(state => state.tools.showAddTool);
 	const showDeleteTool = useSelector(state => state.tools.showDeleteTool);
 	const showSuccessful = useSelector(state => state.tools.successful);
+	//const message = useSelector(state => state.tools.message);
+
 	
 	return (
 		<div className='container'>
 			<Topbar/>
-			{ showAddTool && <AddTool token={token}/>	}
+			{ showAddTool && <AddTool token={props.token}/>	}
 			{ showSuccessful && <Successful/> }
-			{ showDeleteTool && <DeleteTool token={token}/> }
+			{ showDeleteTool && <DeleteTool token={props.token}/> }
+			<SearchTool tools={props.tools}/>
 			{
-			!tools.length ? (
+			!props.tools.length ? (
 				<Loading/>
 			):(
 			<div className='Main'>
-				<SearchTool tools={tools}/>
-				{tools.map((card, index) => {
+				
+				{props.tools.map((card, index) => {
 					return(
 						<section key={index} className='Main_card' >	
 							<nav className='Main_card--header'>
@@ -55,7 +58,7 @@ function Main({tools, token}) {
 							</nav>
 						</section>
 					);
-					})}
+				})}
 			</div>
 			)}
 			
