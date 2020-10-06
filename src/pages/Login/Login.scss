@@ -1,5 +1,5 @@
 .login {
-	background-color: #E1E7FD;
+	background-color: #E7FBF3;
 	border-radius: 5px;
 	padding: 10%;
 	width: 100%;
@@ -8,6 +8,7 @@
 	align-items: center;
 	margin: 10% auto;
 	overflow: hidden;
+	
 
 	& input {
 		width: 100%;
@@ -29,5 +30,10 @@
 		color: #fff;
 		cursor: pointer;
 		max-width: 30rem;
+		border: 1px solid #12DB89;
+	}
+	& button:focus {
+		color: #0E995D;
+		background: #fff 0% 0% no-repeat padding-box;
 	}
 }

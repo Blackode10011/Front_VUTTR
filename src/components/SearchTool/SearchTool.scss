@@ -1,5 +1,5 @@
 .Main_header {
-	width: 100%;
+	width: 97%;
 	height: 70px;
 	z-index: 0;
 
@@ -8,7 +8,7 @@
 	align-items: center;
 
 	&--search {
-		background: #F5F4F6 0% 0% no-repeat padding-box;
+		background: #fff;
 		max-width: 200px;
 		border: 1px solid #8F8A9B;
 		border-radius: 3px;
@@ -62,9 +62,9 @@
 		cursor: pointer;
 		border: 1px solid #12DB89;
 	}
-	& button:focus {
+	& button:focus, button:hover {
 		color: white;
-		background: #0E995D 0% 0% no-repeat padding-box;
+		background: #12DB89 0% 0% no-repeat padding-box;
 	}
 	& img {
 		width: 15px;

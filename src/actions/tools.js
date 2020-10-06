@@ -52,7 +52,6 @@ export const handleCloseSuccess = () => (dispatch) => {
 };
 
 export const filterTools = (title, tools) => (dispatch) => {
-	console.log(title)
 	if (title !== '') {
 		dispatch({
 			type: 'SEARCH_TOOL',

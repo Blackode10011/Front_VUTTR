@@ -10,29 +10,18 @@ import useForm from '../../hooks';
 
 export default function SearchTool(props) {
 	const dispatch = useDispatch();
-
 	const title = useSelector(state => state.tools.searchTitle);
-
-	const { values, handleChange, clearForm } = useForm(title);
-
-	console.log(title)
-	function handleSearch(event) {
-		handleChange(event);
-
-		dispatch(filterTools(values.title, props.tools));	
-		
-	};
+	const { values } = useForm(title);
 	
 	return (
 		<header className='Main_header'>
 			<div className='Main_header--search'>
 				<img src={SearchIcon} alt='SearchIcon' className='Main_header--searchImg'/>
 				<input 
-					type='text'
-					name='title'
+					
 					placeholder='Search'
 					value={values.title}
-					onChange={(event) => handleSearch(event)}
+					onChange={(event) => dispatch(filterTools(event.target.value, props.tools))}
 					className='Main_header--searchInput'
 				/>
 			</div>
