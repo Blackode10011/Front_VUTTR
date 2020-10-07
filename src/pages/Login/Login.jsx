@@ -60,7 +60,6 @@ function Login () {
 					Sign Up
 				</Link>
 			</form>
-			
 		</div>
 	);
 }
