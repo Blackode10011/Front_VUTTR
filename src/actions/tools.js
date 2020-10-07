@@ -72,6 +72,21 @@ export const filterTools = (title, tools) => (dispatch) => {
 		});
 	}
 };
+export const getByTag = (token, tag) => (dispatch) => {
+  toolRepository.getByTag(token, tag)
+    .then(
+      (response) => {
+        dispatch({
+          type: 'SEARCH_TOOL',
+          payload: { 
+						filteredTools: response,
+						search: tag,
+					},
+        });
+      },
+    );
+};
+
 export const errorMessage = (message) => (dispatch) => {
 	dispatch({
 		type: 'ERROR',

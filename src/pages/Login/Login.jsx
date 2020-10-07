@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './Login.scss';
@@ -53,10 +53,12 @@ function Login () {
 					onChange={handleChange} 
 					required
 				/>
-
 				<button type='submit'>
-					Sign In
+					Log In
 				</button>
+				<Link to='/signup'>
+					Sign Up
+				</Link>
 			</form>
 			
 		</div>

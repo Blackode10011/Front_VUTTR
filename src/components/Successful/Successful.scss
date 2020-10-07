@@ -2,11 +2,17 @@
 	background-color: white;
 	position: fixed;
 	
-	width: 45vmax;
+	width: 95%;
 	z-index: 1;
 	top: 40%;
 	box-shadow: 0 0 10rem green;
 	border-radius: 5px;
+	margin-left: 1.1%;
+	max-width: 630px;
+
+	@media screen and (min-width: 100vh) {
+		width: 46vmax;
+	}
 	
 
 	&_header {

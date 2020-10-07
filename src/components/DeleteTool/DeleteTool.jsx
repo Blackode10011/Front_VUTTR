@@ -25,7 +25,7 @@ function DeleteTool(props) {
 				</div>
 			</nav>
 			<nav className='Delete_content'>
-				<span>Are you sure you want to remove ?</span>
+				<span>Are you sure you want to remove {singleTool.title}?</span>
 				<div className='Delete_content--buttons'>
 					<button
 						onClick={() => dispatch(handleCloseDelete())}>

@@ -26,7 +26,7 @@ function Main(props) {
 			{ showAddTool && <AddTool token={props.token}/>	}
 			{ showSuccessful && <Successful/> }
 			{ showDeleteTool && <DeleteTool token={props.token}/> }
-			<SearchTool tools={props.tools}/>
+			<SearchTool tools={props.tools} token={props.token}/>
 			{
 			!props.tools.length ? (
 				<Loading/>
