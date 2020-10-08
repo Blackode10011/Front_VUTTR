@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 	searchTitle: '',
 	message: '',
 	singleTool: [],
-	successful: false,
+	successfully: false,
   showAddTool: false,
   showDeleteTool: false,
 };
@@ -20,7 +20,8 @@ const tools = (state = INITIAL_STATE, action) => {
     case 'CREATE_TOOL': {
       return {
 				...state,
-				successful: true,
+				successfully: true,
+				message: action.payload,
       };
     }
     case 'DELETE_TOOL': {
@@ -38,7 +39,7 @@ const tools = (state = INITIAL_STATE, action) => {
     case 'CLOSE_SUCCESS': {
       return {
         ...state,
-				successful: false,
+				successfully: false,
       };
 		}
 		case 'CLOSE_DELETE': {
@@ -65,12 +66,6 @@ const tools = (state = INITIAL_STATE, action) => {
 				...state,	
 				filteredTools: action.payload.filteredTools,
 				searchTitle: action.payload.search,
-			}
-		}
-		case 'ERROR': {
-			return {
-				...state,
-				message: action.payload,
 			}
 		}
     default:

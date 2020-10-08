@@ -10,7 +10,13 @@ function getAll(token) {
       Authorization: token,
     },
   })
-    .then(async (response) => await response.json());
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
 }
 
 function getByTag(token, tag) {
@@ -21,7 +27,13 @@ function getByTag(token, tag) {
 			Authorization: token,
     },
   })
-    .then(async (response) => await response.json());
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
 }
 
 function createTool(token, tool) {
@@ -33,7 +45,13 @@ function createTool(token, tool) {
     },
     body: JSON.stringify(tool),
   })
-    .then(async (response) => await response.json());
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
 }
 
 function deleteTool(token, id) {
@@ -44,7 +62,13 @@ function deleteTool(token, id) {
       Authorization: token,
     },
   })
-		.then(async (response) => await response.json());
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
 }
 
 export default {

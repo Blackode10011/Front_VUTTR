@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { handleDeleteTool} from '../../actions/tools'; 
+import { handleDeleteTool} from '../../actions'; 
 
 import Topbar from '../Topbar';
 import Loading from '../Loading';
 import SearchTool from '../SearchTool';
 import AddTool from '../AddTool';
 import DeleteTool from '../DeleteTool';
-import Successful from '../Successful';
+import Alert from '../Alert';
 
 import './Main.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
@@ -16,15 +16,14 @@ function Main(props) {
 	const dispatch = useDispatch();
 	const showAddTool = useSelector(state => state.tools.showAddTool);
 	const showDeleteTool = useSelector(state => state.tools.showDeleteTool);
-	const showSuccessful = useSelector(state => state.tools.successful);
-	//const message = useSelector(state => state.tools.message);
-
+	const showSuccessfully = useSelector(state => state.tools.successfully);
+	const message = useSelector(state => state.tools.message);
 	
 	return (
 		<div className='container'>
 			<Topbar/>
 			{ showAddTool && <AddTool token={props.token}/>	}
-			{ showSuccessful && <Successful/> }
+			{ showSuccessfully && <Alert message={message}/> }
 			{ showDeleteTool && <DeleteTool token={props.token}/> }
 			<SearchTool tools={props.tools} token={props.token}/>
 			{
@@ -32,7 +31,6 @@ function Main(props) {
 				<Loading/>
 			):(
 			<div className='Main'>
-				
 				{props.tools.map((card, index) => {
 					return(
 						<section key={index} className='Main_card' >	

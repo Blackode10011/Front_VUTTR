@@ -23,7 +23,6 @@ function Login () {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-
 		await dispatch(userAuth(values));
 	}
 

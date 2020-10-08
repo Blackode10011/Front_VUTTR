@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './SignUp.scss';
 
 import Topbar from '../../components/Topbar';
-import Successful from '../../components/Successful';
+import Alert from '../../components/Alert';
 import useForm from '../../hooks';
 import { createUser } from '../../actions/users';
 
@@ -19,20 +19,19 @@ function SignUp() {
 		password: '',
 	}
 
-	const { values, handleChange } = useForm(initValues);
+	const { values, handleChange, clearForm } = useForm(initValues);
 
 	function handleSubmit(event) {
 		event.preventDefault();
-
 		dispatch(createUser(values));
+		clearForm();
 	};
 
-	console.log(message);
 
 	return (
 		<div className='container'>
 			<Topbar/>
-			{ message && <Successful message={message}/> }
+			{ message && <Alert message={message}/> }
 			<form className='signUp' onSubmit={handleSubmit}>
 				<input
 					type='text'
@@ -61,7 +60,7 @@ function SignUp() {
 				<button type='submit'>
 					Account Create
 				</button>
-				<Link to='/'>
+				<Link to='/login'>
 					Back
 				</Link>
 			</form>	

@@ -10,8 +10,14 @@ function login(user) {
     },
     body: JSON.stringify(user),
   })
-    .then(async (response) => await response.json());
-}
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
+};
 
 function createUser(user) {
   return fetch(`${url}/register`, {
@@ -28,7 +34,6 @@ function createUser(user) {
 				return await response.status;
 			}
 		});
-		
 }
 
 export default {

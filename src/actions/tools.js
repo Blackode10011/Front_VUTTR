@@ -17,7 +17,7 @@ export const createTool = (token, tool) => (dispatch) => {
     .then(
 			dispatch({ 
 				type: 'CREATE_TOOL', 
-				successful: true,
+				payload: 'Tool created',
 			})
     );
 };
@@ -32,19 +32,6 @@ export const handleDeleteTool = (tool) => (dispatch) => {
 		type: 'SHOW_DELETE_TOOL', 
 		payload: tool,
 	});
-};
-
-export const handleCloseDelete = () => (dispatch) => {
-	
-	dispatch({ type: 'CLOSE_DELETE' });
-};
-
-export const handleAddTool = () => (dispatch) => {
-  dispatch({ type: 'SHOW_ADD_TOOL' });
-};
-
-export const handleCloseAdd = () => (dispatch) => {
-  dispatch({ type: 'CLOSE_ADD' });
 };
 
 export const filterTools = (title, tools) => (dispatch) => {
@@ -82,12 +69,3 @@ export const getByTag = (token, tag) => (dispatch) => {
       },
     );
 };
-
-export const errorMessage = (message) => (dispatch) => {
-	dispatch({
-		type: 'ERROR',
-		payload: {
-			message: message,
-		},
-	});
-}

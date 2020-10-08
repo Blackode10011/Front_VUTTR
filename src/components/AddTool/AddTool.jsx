@@ -27,7 +27,7 @@ function AddTool(props) {
 		values.tags = splitsTags;
 		
 		await dispatch(createTool(props.token, values));
-		await dispatch(getAllTools(props.token));
+		dispatch(getAllTools(props.token));
 		dispatch(handleCloseAdd());
 	}
 

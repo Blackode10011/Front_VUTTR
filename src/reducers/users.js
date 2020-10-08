@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   message: '',
-  user: [],
+	successfully: false,
 };
 
 const users = (state = INITIAL_STATE, action) => {
@@ -8,20 +8,22 @@ const users = (state = INITIAL_STATE, action) => {
     case 'CREATE_USER': {
       return {
 				...state,
-				user: action.payload.user,
 				message: action.payload.message,
+				successfully: true,
       };
 		}
-		case 'ERROR_CREATE_USER': {
+		case 'ERROR_USER': {
 			return {
 				...state,
 				message: action.payload,
+				successfully: false,
 			};
 		}
 		case 'CLOSE_SUCCESS': {
       return {
 				...state,
 				message: action.payload,
+				successfully: false,
       };
 		}
     default:

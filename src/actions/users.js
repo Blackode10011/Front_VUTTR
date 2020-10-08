@@ -6,11 +6,17 @@ export const userAuth = (values) => (dispatch) => {
     password: values.password,
   }).then(
     (response) => {
-      dispatch({
-        type: 'LOGIN_SUCESS',
-        payload: response,
-      });
-      console.log(response);
+			if(response === 401) {
+				dispatch({
+					type: 'ERROR_USER',
+					message: 'Failed to validate token',
+				});
+			}else {
+				dispatch({
+					type: 'LOGIN_SUCESS',
+					payload: response,
+				});
+			}
     },
   );
 };
@@ -23,7 +29,7 @@ export const createUser = (values) => (dispatch) => {
 		(response) => {
 			if (response === 400) {
 				dispatch({
-					type: 'ERROR_CREATE_USER',
+					type: 'ERROR_USER',
 					payload: 'User already exists',
 				});	
 			}else {
@@ -35,7 +41,6 @@ export const createUser = (values) => (dispatch) => {
 					},
 				});	
 			}
-			
 		}
 	);
 };
