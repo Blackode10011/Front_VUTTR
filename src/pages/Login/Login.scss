@@ -21,7 +21,7 @@
 		max-width: 30rem;
 	}
 	& button {
-		margin-top: .8rem;
+		margin-top: .9rem;
 		width: 100%;
 		height: 50px;
 		background: #10B26C 0% 0% no-repeat padding-box;
@@ -35,9 +35,14 @@
 	& button:focus {
 		color: #0E995D;
 		background: #fff 0% 0% no-repeat padding-box;
+		border: none;
+	}
+	& button:hover {
+		color: #0E995D;
+		background: #F5F4F6 0% 0% no-repeat padding-box;
 	}
 	& a {
-		margin-top: .8rem;
+		margin-top: .9rem;
 		color: #170C3A;
 		opacity: .85;
 	}

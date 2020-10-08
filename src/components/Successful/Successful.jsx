@@ -3,21 +3,20 @@ import { useDispatch } from 'react-redux';
 import { handleCloseSuccess } from '../../actions';
 
 import './Successful.scss';
-import AddIcon from '../../assets/icons/plus.svg';
 
-function Succesful() {
+function Succesful({message}) {
 	const dispatch = useDispatch();
+	console.log(message)
 	return (
 		<div className='container'>
 			<div className='Successful'>
 				<nav className='Successful_header'>
 					<div className='Successful_header--title'>
-						<img src={AddIcon} alt='CloseIcon'/>
-						<span> Add new tool</span>
+						<span> VUTTR</span>
 					</div>
 				</nav>
 				<nav className='Successful_content'>
-					<span>Tool successfully registered!</span>
+					<span>{message}!</span>
 					<button 
 						onClick={() => {dispatch(handleCloseSuccess())}}>
 						Ok!

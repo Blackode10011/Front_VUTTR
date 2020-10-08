@@ -13,6 +13,25 @@ function login(user) {
     .then(async (response) => await response.json());
 }
 
+function createUser(user) {
+  return fetch(`${url}/register`, {
+    method: 'POST',
+    headers: {
+			'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  })
+		.then(async (response) => { 
+			if (response.ok) {
+				return await response.json();	
+			}else{
+				return await response.status;
+			}
+		});
+		
+}
+
 export default {
-  login,
+	login,
+	createUser,
 };

@@ -1,11 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './SignUp.scss';
 
 import Topbar from '../../components/Topbar';
+import Successful from '../../components/Successful';
 import useForm from '../../hooks';
+import { createUser } from '../../actions/users';
 
 function SignUp() {
+	const dispatch = useDispatch();
+	const message = useSelector(state => state.users.message);
 
 	const initValues = {
 		name: '',
@@ -17,11 +23,16 @@ function SignUp() {
 
 	function handleSubmit(event) {
 		event.preventDefault();
+
+		dispatch(createUser(values));
 	};
+
+	console.log(message);
 
 	return (
 		<div className='container'>
 			<Topbar/>
+			{ message && <Successful message={message}/> }
 			<form className='signUp' onSubmit={handleSubmit}>
 				<input
 					type='text'
@@ -50,6 +61,9 @@ function SignUp() {
 				<button type='submit'>
 					Account Create
 				</button>
+				<Link to='/'>
+					Back
+				</Link>
 			</form>	
 		</div>
 	);

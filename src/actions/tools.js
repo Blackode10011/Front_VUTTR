@@ -47,10 +47,6 @@ export const handleCloseAdd = () => (dispatch) => {
   dispatch({ type: 'CLOSE_ADD' });
 };
 
-export const handleCloseSuccess = () => (dispatch) => {
-  dispatch({ type: 'CLOSE_SUCCESS' });
-};
-
 export const filterTools = (title, tools) => (dispatch) => {
 	if (title !== '') {
 		dispatch({
