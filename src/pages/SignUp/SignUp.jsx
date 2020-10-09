@@ -27,7 +27,6 @@ function SignUp() {
 		clearForm();
 	};
 
-
 	return (
 		<div className='container'>
 			<Topbar/>

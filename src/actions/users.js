@@ -9,15 +9,25 @@ export const userAuth = (values) => (dispatch) => {
 			if(response === 401) {
 				dispatch({
 					type: 'ERROR_USER',
-					message: 'Failed to validate token',
+					payload: 'Failed to validate token',
 				});
-			}else {
+			}else if(response === 404) {
+				dispatch({
+					type: 'ERROR_USER',
+					payload: 'User not found',
+				});
+			}else if(response === 403) {
+				dispatch({
+					type: 'ERROR_USER',
+					payload: 'Invalid password',
+				});
+			}else if(response === 201) {
 				dispatch({
 					type: 'LOGIN_SUCESS',
 					payload: response,
 				});
 			}
-    },
+		},
   );
 };
 export const createUser = (values) => (dispatch) => {

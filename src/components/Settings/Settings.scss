@@ -1,0 +1,12 @@
+.settings {
+	position: fixed;
+	display: inline-block;
+	margin-left: 100vh;
+	
+	@media screen and (min-width: 100vh) {
+		width: 46vmax;
+	}
+	img {
+		width: 20px;
+	}
+}
