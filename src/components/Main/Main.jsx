@@ -11,6 +11,7 @@ import Alert from '../Alert';
 
 import './Main.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
+import SettingIcon from '../../assets/icons/Icon-Settings-2px.svg';
 
 function Main(props) {
 	const dispatch = useDispatch();
@@ -21,7 +22,11 @@ function Main(props) {
 	
 	return (
 		<div className='container'>
+			<div className='Main_settings'>
+				<img src={SettingIcon} alt='Settings'/>
+			</div>
 			<Topbar/>
+			
 			{ showAddTool && <AddTool token={props.token}/>	}
 			{ showSuccessfully && <Alert message={message}/> }
 			{ showDeleteTool && <DeleteTool token={props.token}/> }

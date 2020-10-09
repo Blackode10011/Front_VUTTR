@@ -1,5 +1,14 @@
 .Main {
 
+	&_settings {
+		position: fixed;
+		display: inline-block;
+		margin-left: 100vh;
+		
+		img {
+			width: 20px;
+		}
+	}
 	&_card {
 		width: 97%;
 		background: #FFFFFF 0% 0% no-repeat padding-box;

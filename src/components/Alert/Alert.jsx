@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { handleCloseAlert } from '../../actions';
 
 import './Alert.scss';
+import ToolIcon from '../../assets/icons/Icon-Tool-2px.svg';
 
 function Alert({message}) {
 	const dispatch = useDispatch();
@@ -12,6 +13,7 @@ function Alert({message}) {
 			<div className='Alert'>
 				<nav className='Alert_header'>
 					<div className='Alert_header--title'>
+						<img src={ToolIcon} alt='ToolIcon'/>
 						<span> VUTTR</span>
 					</div>
 				</nav>

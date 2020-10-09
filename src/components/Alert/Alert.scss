@@ -25,6 +25,10 @@
 			font-weight: 600;
 			opacity: .82;
 		}
+		& img {
+			width: 17px;
+			margin-right: 1%;
+		}
 	}
 
 	&_content {
@@ -34,6 +38,7 @@
 	}
 	& span {
 		color: #170C3A;
+		font-size: 20px;
 	}
 	& button {
 		height: 2rem;
