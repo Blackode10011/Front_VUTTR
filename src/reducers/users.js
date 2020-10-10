@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
-  message: '',
-	successfully: false,
-};
+	message: '',
+	showManageAccount: false,
+	};
 
 const users = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -9,22 +9,25 @@ const users = (state = INITIAL_STATE, action) => {
       return {
 				...state,
 				message: action.payload.message,
-				successfully: true,
-      };
+				};
 		}
 		case 'ERROR_USER': {
 			return {
 				...state,
 				message: action.payload,
-				successfully: false,
-			};
+				};
 		}
 		case 'CLOSE_SUCCESS': {
       return {
 				...state,
 				message: action.payload,
-				successfully: false,
-      };
+				};
+		}
+		case 'SHOW_MANAGE_ACCOUNT': {
+			return {
+				...state,
+				showManageAccount: true,
+			};
 		}
     default:
       return state;

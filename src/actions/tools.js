@@ -27,13 +27,6 @@ export const deleteTool = (token, id) => (dispatch) => {
 		 .then(dispatch({ type: 'DELETE_TOOL' }));
 };
 
-export const handleDeleteTool = (tool) => (dispatch) => {
-	dispatch({ 
-		type: 'SHOW_DELETE_TOOL', 
-		payload: tool,
-	});
-};
-
 export const filterTools = (title, tools) => (dispatch) => {
 	if (title !== '') {
 		dispatch({

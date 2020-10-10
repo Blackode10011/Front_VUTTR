@@ -4,7 +4,6 @@ const INITIAL_STATE = {
 	searchTitle: '',
 	message: '',
 	singleTool: [],
-	successfully: false,
   showAddTool: false,
   showDeleteTool: false,
 };
@@ -20,7 +19,6 @@ const tools = (state = INITIAL_STATE, action) => {
     case 'CREATE_TOOL': {
       return {
 				...state,
-				successfully: true,
 				message: action.payload,
       };
     }
@@ -39,7 +37,7 @@ const tools = (state = INITIAL_STATE, action) => {
     case 'CLOSE_SUCCESS': {
       return {
         ...state,
-				successfully: false,
+				message: action.payload,
       };
 		}
 		case 'CLOSE_DELETE': {

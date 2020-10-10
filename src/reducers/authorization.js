@@ -6,11 +6,18 @@ const INITIAL_STATE = {
 
 const authorization = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'LOGIN_SUCESS': {
+    case 'LOGIN_SUCCESS': {
       return {
         isLogged: true,
         token: action.payload.token,
         user: action.payload.findedUser,
+      };
+		}
+		case 'LOGOUT_SUCCESS': {
+      return {
+        isLogged: false,
+        token: '',
+        user: '',
       };
     }
     default:

@@ -15,8 +15,6 @@ function App() {
 	const filteredTools = useSelector(state => state.tools.filteredTools);
 	var toolsOutput;
 
-
-
 	useEffect(function fetchTools() {
 		dispatch(getAllTools(token));
 	},[dispatch, token]);
@@ -28,7 +26,6 @@ function App() {
 		toolsOutput = filteredTools;
 	}
 	
-
 	return (
     <div className='App'>
 			<div className='container'>

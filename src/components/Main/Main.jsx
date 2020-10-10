@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { handleDeleteTool} from '../../actions'; 
 
 import Topbar from '../Topbar';
-import Settings from '../Settings';
 import Loading from '../Loading';
 import SearchTool from '../SearchTool';
 import AddTool from '../AddTool';
 import DeleteTool from '../DeleteTool';
 import Alert from '../Alert';
+import ManageAccount from '../ManageAccount';
 
 import './Main.scss';
 import CloseIcon from '../../assets/icons/cancel.svg';
@@ -17,16 +17,16 @@ function Main(props) {
 	const dispatch = useDispatch();
 	const showAddTool = useSelector(state => state.tools.showAddTool);
 	const showDeleteTool = useSelector(state => state.tools.showDeleteTool);
-	const showSuccessfully = useSelector(state => state.tools.successfully);
+	const showManageAccount = useSelector(state => state.users.showManageAccount);
 	const message = useSelector(state => state.tools.message);
-	
+
 	return (
 		<div className='container'>
 			<Topbar/>
-			<Settings/>
 			{ showAddTool && <AddTool token={props.token}/>	}
-			{ showSuccessfully && <Alert message={message}/> }
+			{ message && <Alert message={message}/> }
 			{ showDeleteTool && <DeleteTool token={props.token}/> }
+			{ showManageAccount && <ManageAccount/> }
 			<SearchTool tools={props.tools} token={props.token}/>
 			{
 			!props.tools.length ? (

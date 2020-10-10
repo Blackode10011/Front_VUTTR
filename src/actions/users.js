@@ -21,9 +21,9 @@ export const userAuth = (values) => (dispatch) => {
 					type: 'ERROR_USER',
 					payload: 'Invalid password',
 				});
-			}else if(response === 201) {
+			}else {
 				dispatch({
-					type: 'LOGIN_SUCESS',
+					type: 'LOGIN_SUCCESS',
 					payload: response,
 				});
 			}
@@ -53,4 +53,7 @@ export const createUser = (values) => (dispatch) => {
 			}
 		}
 	);
+};
+export const logoutUser = () => (dispatch) => {
+	dispatch({ type: 'LOGOUT_SUCCESS' });
 };

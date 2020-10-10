@@ -22,13 +22,13 @@ function Login () {
 	}
 
 	const { handleChange, values, clearForm } = useForm(initValues);
-console.log(message)
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 		await dispatch(userAuth(values));
 		clearForm();
 	};
-
+	console.log(isLogged)
 	useEffect(() => {
 		if (isLogged) {
 			history.push('/');
