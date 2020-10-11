@@ -7,30 +7,30 @@ import UserIcon from 	'../../assets/icons/Icon-User-2px.svg';
 import CloseIcon from '../../assets/icons/cancel.svg';
 
 import useForm from '../../hooks';
+import Alert from '../Alert';
 
 function ManageAccount() {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.authorization.user);
 	const token = useSelector(state => state.authorization.token);
 	const userUpdated = useSelector(state => state.users.userUpdated);
+	const message = useSelector(state => state.users.message);
 	const { values, handleChange } = useForm(user);
 	
-	console.log(user)
-	console.log(token)
 	async function handleSubmit(event) {
 		event.preventDefault();
 		
-		await dispatch(updateUser(token, user));
+		await dispatch(updateUser(token, values));
 
-		if (userUpdated) {
+		if (userUpdated.length) {
 			await dispatch(updateUserAuth(userUpdated));	
 		}
 		
-
 	};
 	return (
 		<div className='container'>
 			<div className='Account'>
+			{ message && <Alert message={message}/> }
 			<nav className='Account_header'>
 				<div className='Account_header--title'>
 					<img src={UserIcon} alt='AddIcon'/>
