@@ -27,3 +27,7 @@ export const handleDeleteTool = (tool) => (dispatch) => {
 export const handleManageAccount = () => (dispatch) => {
 	dispatch({ type: 'SHOW_MANAGE_ACCOUNT' });
 };
+
+export const closeManageAccount = () => (dispatch) => {
+	dispatch({ type: 'CLOSE_MANAGE_ACCOUNT' });
+};

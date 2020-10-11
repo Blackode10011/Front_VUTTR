@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
 	message: '',
 	showManageAccount: false,
+	userUpdated: [],
 	};
 
 const users = (state = INITIAL_STATE, action) => {
@@ -9,6 +10,13 @@ const users = (state = INITIAL_STATE, action) => {
       return {
 				...state,
 				message: action.payload.message,
+				};
+		}
+		case 'UPDATE_USER': {
+      return {
+				...state,
+				message: action.payload.message,
+				userUpdated: action.payload.user,
 				};
 		}
 		case 'ERROR_USER': {
@@ -27,6 +35,12 @@ const users = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				showManageAccount: true,
+			};
+		}
+		case 'CLOSE_MANAGE_ACCOUNT': {
+			return {
+				...state,
+				showManageAccount: false,
 			};
 		}
     default:

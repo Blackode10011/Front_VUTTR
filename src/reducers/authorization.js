@@ -19,7 +19,13 @@ const authorization = (state = INITIAL_STATE, action) => {
         token: '',
         user: '',
       };
-    }
+		}
+		case 'UPDATE_USER_AUTH': {
+      return {
+				...state,
+				user: action.payload,
+				};
+		}
     default:
       return state;
   }

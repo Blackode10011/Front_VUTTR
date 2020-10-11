@@ -36,7 +36,26 @@ function createUser(user) {
 		});
 }
 
+function updateUser(token, user) {
+  return fetch(`${url}/users/${user.id}`, {
+    method: 'PUT',
+    headers: {
+			'Content-Type': 'application/json',
+      Authorization: token,
+    },
+    body: JSON.stringify(user),
+  })
+	.then(async (response) => { 
+		if (response.ok) {
+			return await response.json();	
+		}else{
+			return await response.status;
+		}
+	});
+}
+
 export default {
 	login,
 	createUser,
+	updateUser,
 };

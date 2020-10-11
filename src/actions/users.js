@@ -57,3 +57,30 @@ export const createUser = (values) => (dispatch) => {
 export const logoutUser = () => (dispatch) => {
 	dispatch({ type: 'LOGOUT_SUCCESS' });
 };
+export const updateUser = (token, user) => (dispatch) => {
+	userRepository.updateUser(token, user)
+	.then(
+		(response) => {
+			if (response === 400) {
+				dispatch({
+					type: 'ERROR_USER',
+					payload: 'E-mail already registered',
+				});	
+			}else {
+				dispatch({
+					type: 'UPDATE_USER',
+					payload: {
+						user: response,
+						message: 'User updated',
+					},
+				});	
+			}
+		}
+	);
+};
+export const updateUserAuth = (user) => (dispatch) => {
+	dispatch({
+		type: 'UPDATE_USER_AUTH',
+		payload: user,
+	});
+};
