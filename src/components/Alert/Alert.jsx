@@ -7,7 +7,6 @@ import ToolIcon from '../../assets/icons/Icon-Tool-2px.svg';
 
 function Alert({message}) {
 	const dispatch = useDispatch();
-	console.log(message)
 	return (
 		<div className='container'>
 			<div className='Alert'>

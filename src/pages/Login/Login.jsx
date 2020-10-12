@@ -28,7 +28,7 @@ function Login () {
 		await dispatch(userAuth(values));
 		clearForm();
 	};
-	console.log(isLogged)
+	
 	useEffect(() => {
 		if (isLogged) {
 			history.push('/');

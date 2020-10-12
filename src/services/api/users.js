@@ -13,10 +13,11 @@ function login(user) {
     .then(
       async (response) => {
         if (response.ok) {
-          await response.json();
-        } else {
-          await response.status;
+          const resp = await response.json();
+          return resp;
         }
+        const resp = await response.status;
+        return resp;
       },
     );
 }
@@ -28,13 +29,16 @@ function createUser(user) {
     },
     body: JSON.stringify(user),
   })
-    .then(async (response) => {
-      if (response.ok) {
-        await response.json();
-      } else {
-        await response.status;
-      }
-    });
+    .then(
+      async (response) => {
+        if (response.ok) {
+          const resp = await response.json();
+          return resp;
+        }
+        const resp = await response.status;
+        return resp;
+      },
+    );
 }
 function updateUser(token, user) {
   return fetch(`${url}/users/${user.id}`, {
@@ -45,13 +49,16 @@ function updateUser(token, user) {
     },
     body: JSON.stringify(user),
   })
-    .then(async (response) => {
-      if (response.ok) {
-        await response.json();
-      } else {
-        await response.status;
-      }
-    });
+    .then(
+      async (response) => {
+        if (response.ok) {
+          const resp = await response.json();
+          return resp;
+        }
+        const resp = await response.status;
+        return resp;
+      },
+    );
 }
 function deleteUser(token, id) {
   return fetch(`${url}/users/${id}`, {
@@ -61,7 +68,12 @@ function deleteUser(token, id) {
       Authorization: token,
     },
   })
-    .then(async (response) => { await response.status; });
+    .then(
+      async (response) => {
+        const resp = await response.status;
+        return resp;
+      },
+    );
 }
 
 export default {

@@ -13,10 +13,11 @@ function getAll(token) {
     .then(
       async (response) => {
         if (response.ok) {
-          await response.json();
-        } else {
-          await response.status;
+          const resp = await response.json();
+          return resp;
         }
+        const resp = await response.status;
+        return resp;
       },
     );
 }
@@ -32,10 +33,11 @@ function getByTag(token, tag) {
     .then(
       async (response) => {
         if (response.ok) {
-          await response.json();
-        } else {
-          await response.status;
+          const resp = await response.json();
+          return resp;
         }
+        const resp = await response.status;
+        return resp;
       },
     );
 }
@@ -52,10 +54,11 @@ function createTool(token, tool) {
     .then(
       async (response) => {
         if (response.ok) {
-          await response.json();
-        } else {
-          await response.status;
+          const resp = await response.json();
+          return resp;
         }
+        const resp = await response.status;
+        return resp;
       },
     );
 }
@@ -68,7 +71,12 @@ function deleteTool(token, id) {
       Authorization: token,
     },
   })
-    .then(async (response) => { await response.status; });
+    .then(
+      async (response) => {
+        const resp = await response.status;
+        return resp;
+      },
+    );
 }
 
 export default {

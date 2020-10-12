@@ -12,7 +12,6 @@ export default function SearchTool(props) {
 	const dispatch = useDispatch();
 	const title = useSelector(state => state.tools.searchTitle);
 	const { values } = useForm(title);
-	console.log(title)
 	
 	return (
 		<header className='Main_header'>
