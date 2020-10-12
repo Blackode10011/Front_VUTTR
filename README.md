@@ -21,12 +21,103 @@
 
 >![50%](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/4-search.png)
 
+## Estrutura de arquivos e pastas
+````bash
+./actions:
+	index.js  
+	messages.js  
+	tools.js  
+	users.js
+./assets:
+	./icons:
+		cancel.svg
+		Icon-Search-2px.svg    
+		Icon-Sync-2px.svg  
+		Icon-User-2px.svg
+		Icon-Delete-2px.svg  
+		Icon-Settings-2px.svg  
+		Icon-Tool-2px.svg  plus.svg
+./components:
+	./AddTool:
+		AddTool.jsx  
+		AddTool.scss  
+		index.jsx
+	./Alert:
+		Alert.jsx  
+		Alert.scss  
+		index.jsx
+	./DeleteTool:
+		DeleteTool.jsx  
+		DeleteTool.scss  
+		index.jsx
+	./DeleteUser:
+		DeleteUser.jsx  
+		DeleteUser.scss  
+		index.jsx
+	./Loading:
+		index.jsx  
+		Loading.scss
+	./Main:
+		index.jsx  
+		Main.jsx  
+		Main.scss
+	./ManageAccount:
+		index.jsx  
+		ManageAccount.jsx  
+		ManageAccount.scss
+	./SearchTool:
+		index.jsx  
+		SearchTool.jsx  
+		SearchTool.scss
+	./Settings:
+		index.jsx  
+		Settings.jsx  
+		Settings.scss
+	./Topbar:
+		index.jsx  
+		Topbar.jsx  
+		Topbar.scss
+./hooks:
+	index.js
+./pages:
+	./Default:
+		App.jsx  
+		App.scss  
+		index.jsx
+	./Login:
+		index.jsx  
+		Login.jsx  
+		Login.scss
+	./SignUp:
+		index.jsx  
+		SignUp.jsx  
+		SignUp.scss
+./reducers:
+	authorization.js  
+	index.js  
+	tools.js  
+	users.js
+./routes:
+	index.jsx
+./services:
+	index.js
+	./api:
+		tools.js  
+		users.js
+./store:
+	index.js
+./styles:
+	index.scss  
+	normalize.scss  
+	reset.scss
+````
+
 ## Endpoints
 * API em produção: [API Vuttr Heroku](https://vuttr-shumax.herokuapp.com/)
 
 ## Itens Extras
  * Autenticação e autorização ( JWT );
- * Deploy ( Vercel );
+ * Deployed [( Vercel );](https://vercel.com/)
 
 ## Dependências Necessárias
 ```json
