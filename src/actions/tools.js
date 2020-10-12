@@ -24,7 +24,11 @@ export const createTool = (token, tool) => (dispatch) => {
 
 export const deleteTool = (token, id) => (dispatch) => {
   toolRepository.deleteTool(token, id)
-		 .then(dispatch({ type: 'DELETE_TOOL' }));
+		 .then(
+			(response) => {
+				if (response === 204) {
+					dispatch({ type: 'DELETE_TOOL' })	
+				}});
 };
 
 export const filterTools = (title, tools) => (dispatch) => {

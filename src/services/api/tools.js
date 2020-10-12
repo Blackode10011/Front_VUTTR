@@ -63,11 +63,7 @@ function deleteTool(token, id) {
     },
   })
 	.then(async (response) => { 
-		if (response.ok) {
-			return await response.json();	
-		}else{
-			return await response.status;
-		}
+		return await response.status;
 	});
 }
 

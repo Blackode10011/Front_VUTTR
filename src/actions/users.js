@@ -84,3 +84,11 @@ export const updateUserAuth = (user) => (dispatch) => {
 		payload: user,
 	});
 };
+export const deleteUser = (token, id) => (dispatch) => {
+	userRepository.deleteUser(token, id)
+		.then(
+			(response) => {
+				if (response === 204) {
+					dispatch({ type: 'LOGOUT_SUCCESS' })	
+				}});
+};

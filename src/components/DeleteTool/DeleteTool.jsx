@@ -11,22 +11,22 @@ function DeleteTool(props) {
 
 	async function handleDelete() {
 		await dispatch(deleteTool(props.token, singleTool.id));
-		await dispatch(getAllTools(props.token));
+		dispatch(getAllTools(props.token));
 		dispatch(handleCloseDelete());
 	};
 
 	return (
 		<div className='container'>
-		 <div className='Delete'>
-			<nav className='Delete_header'>
-				<div className='Delete_header--title'>
+		 <div className='DeleteTool'>
+			<nav className='DeleteTool_header'>
+				<div className='DeleteTool_header--title'>
 					<img src={CloseIcon} alt='CloseIcon'/>
 					<span> Remove tool</span>
 				</div>
 			</nav>
-			<nav className='Delete_content'>
+			<nav className='DeleteTool_content'>
 				<span>Are you sure you want to remove {singleTool.title}?</span>
-				<div className='Delete_content--buttons'>
+				<div className='DeleteTool_content--buttons'>
 					<button
 						onClick={() => dispatch(handleCloseDelete())}>
 						Cancel  

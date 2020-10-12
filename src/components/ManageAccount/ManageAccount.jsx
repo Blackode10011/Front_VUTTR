@@ -1,13 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeManageAccount, updateUser, updateUserAuth } from '../../actions';
+import { closeManageAccount, updateUser, updateUserAuth, handleDeleteUser } from '../../actions';
 
 import './ManageAccount.scss';
 import UserIcon from 	'../../assets/icons/Icon-User-2px.svg';
 import CloseIcon from '../../assets/icons/cancel.svg';
+import UpdateIcon from '../../assets/icons/Icon-Sync-2px.svg';
+import DeleteIcon from '../../assets/icons/Icon-Delete-2px.svg';
 
 import useForm from '../../hooks';
 import Alert from '../Alert';
+import DeleteUser from '../DeleteUser';
 
 function ManageAccount() {
 	const dispatch = useDispatch();
@@ -15,6 +18,8 @@ function ManageAccount() {
 	const token = useSelector(state => state.authorization.token);
 	const userUpdated = useSelector(state => state.users.userUpdated);
 	const message = useSelector(state => state.users.message);
+	const showDeleteUser = useSelector(state => state.users.showDeleteUser);
+	
 	const { values, handleChange } = useForm(user);
 	
 	async function handleSubmit(event) {
@@ -25,12 +30,12 @@ function ManageAccount() {
 		if (userUpdated.length) {
 			await dispatch(updateUserAuth(userUpdated));	
 		}
-		
 	};
 	return (
 		<div className='container'>
 			<div className='Account'>
 			{ message && <Alert message={message}/> }
+			{ showDeleteUser && <DeleteUser/> }
 			<nav className='Account_header'>
 				<div className='Account_header--title'>
 					<img src={UserIcon} alt='AddIcon'/>
@@ -68,9 +73,22 @@ function ManageAccount() {
 					onChange={handleChange}
 					required
 				/>
-				<button type='submit'>
-					Send Changes!
-				</button>
+				<div className='Account_buttons'>
+					<button>
+						<img	
+							className='Account_buttons--update'
+							src={UpdateIcon} 
+							alt='UpdateIcon' 
+						/>
+					</button>
+					<></>
+					<img 
+						className='Account_buttons--delete'
+						onClick={() => dispatch(handleDeleteUser())}
+						src={DeleteIcon} 
+						alt='DeleteIcon' 
+					/>
+				</div>
 			</form>
 			</div>
 		</div>

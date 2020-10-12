@@ -23,6 +23,12 @@ export const handleDeleteTool = (tool) => (dispatch) => {
 		payload: tool,
 	});
 };
+export const handleDeleteUser = () => (dispatch) => {
+	dispatch({ type: 'SHOW_DELETE_USER' });
+};
+export const handleCloseDeleteUser = () => (dispatch) => {
+	dispatch({ type: 'CLOSE_DELETE_USER' });
+};
 
 export const handleManageAccount = () => (dispatch) => {
 	dispatch({ type: 'SHOW_MANAGE_ACCOUNT' });

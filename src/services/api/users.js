@@ -53,9 +53,22 @@ function updateUser(token, user) {
 		}
 	});
 }
+function deleteUser(token, id) {
+  return fetch(`${url}/users/${id}`, {
+    method: 'DELETE',
+    headers: {
+			'Content-Type': 'application/json',
+      Authorization: token,
+    }
+  })
+	.then(async (response) => { 
+		return await response.status;
+	});
+}
 
 export default {
 	login,
 	createUser,
 	updateUser,
+	deleteUser,
 };

@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
 	message: '',
 	showManageAccount: false,
+	showDeleteUser: false,
 	userUpdated: [],
 	};
 
@@ -41,6 +42,17 @@ const users = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				showManageAccount: false,
+			};
+		}
+		case 'SHOW_DELETE_USER': {
+			return {
+				...state,
+				showDeleteUser: true,
+			};
+		}case 'CLOSE_DELETE_USER': {
+			return {
+				...state,
+				showDeleteUser: false,
 			};
 		}
     default:
