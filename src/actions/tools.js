@@ -27,7 +27,7 @@ export const deleteTool = (token, id) => (dispatch) => {
     .then(
       (response) => {
         if (response === 204) {
-          dispatch({ type: 'LOGOUT_SUCCESS' });
+          dispatch({ type: 'CLOSE_DELETE' });
         }
       },
     );
