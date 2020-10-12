@@ -1,12 +1,12 @@
 export const handleCloseAlert = () => (dispatch) => {
-  dispatch({ 
-		type: 'CLOSE_SUCCESS', 
-		payload: '' 
-	});
+  dispatch({
+    type: 'CLOSE_SUCCESS',
+    payload: '',
+  });
 };
 
 export const handleCloseDelete = () => (dispatch) => {
-	dispatch({ type: 'CLOSE_DELETE' });
+  dispatch({ type: 'CLOSE_DELETE' });
 };
 
 export const handleAddTool = () => (dispatch) => {
@@ -18,22 +18,22 @@ export const handleCloseAdd = () => (dispatch) => {
 };
 
 export const handleDeleteTool = (tool) => (dispatch) => {
-	dispatch({ 
-		type: 'SHOW_DELETE_TOOL', 
-		payload: tool,
-	});
+  dispatch({
+    type: 'SHOW_DELETE_TOOL',
+    payload: tool,
+  });
 };
 export const handleDeleteUser = () => (dispatch) => {
-	dispatch({ type: 'SHOW_DELETE_USER' });
+  dispatch({ type: 'SHOW_DELETE_USER' });
 };
 export const handleCloseDeleteUser = () => (dispatch) => {
-	dispatch({ type: 'CLOSE_DELETE_USER' });
+  dispatch({ type: 'CLOSE_DELETE_USER' });
 };
 
 export const handleManageAccount = () => (dispatch) => {
-	dispatch({ type: 'SHOW_MANAGE_ACCOUNT' });
+  dispatch({ type: 'SHOW_MANAGE_ACCOUNT' });
 };
 
 export const closeManageAccount = () => (dispatch) => {
-	dispatch({ type: 'CLOSE_MANAGE_ACCOUNT' });
+  dispatch({ type: 'CLOSE_MANAGE_ACCOUNT' });
 };

@@ -11,7 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" component={PageDefault} exact />
         <Route path="/login" component={PageLogin} />
-				<Route path="/signup" component={PageSignUp} />
+        <Route path="/signup" component={PageSignUp} />
       </Switch>
     </BrowserRouter>
   );

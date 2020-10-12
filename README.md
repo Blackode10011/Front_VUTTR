@@ -25,8 +25,8 @@
 * API em produção: [API Vuttr Heroku](https://vuttr-shumax.herokuapp.com/)
 
 ## Itens Extras
- > Autenticação e autorização ( JWT );
- > Deploy ( Vercel );
+ * Autenticação e autorização ( JWT );
+ * Deploy ( Vercel );
 
 ## Dependências Necessárias
 ```json

@@ -12,20 +12,20 @@ const authorization = (state = INITIAL_STATE, action) => {
         token: action.payload.token,
         user: action.payload.findedUser,
       };
-		}
-		case 'LOGOUT_SUCCESS': {
+    }
+    case 'LOGOUT_SUCCESS': {
       return {
         isLogged: false,
         token: '',
         user: '',
       };
-		}
-		case 'UPDATE_USER_AUTH': {
+    }
+    case 'UPDATE_USER_AUTH': {
       return {
-				...state,
-				user: action.payload,
-				};
-		}
+        ...state,
+        user: action.payload,
+      };
+    }
     default:
       return state;
   }
